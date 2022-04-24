@@ -1,0 +1,11 @@
+body {
+    background-color: rgba(11, 22, 53, 0.97);
+    color: beige;
+    font-family: monospace;
+}
+
+.page-title-home,
+.page-title-about,
+.page-title-posts {
+    text-align: center;
+}

@@ -16,7 +16,7 @@
           <a class="nav-link {{ ($title === "journeys" ? 'active' : '') }}" href="/posts">journeys</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($title === "cities" ? 'active' : '') }}" href="/cities">cities</a>
+          <a class="nav-link {{ ($title === $city ? 'active' : '') }}" href="/cities">cities</a>
         </li>
       </ul>
     </div>

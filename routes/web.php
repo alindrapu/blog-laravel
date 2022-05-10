@@ -40,10 +40,11 @@ Route::get('/cities/{city:slug}', function(City $city){
         'city' => $city->name
     ]);
 });
-Route::get('cities/', function(){
-    return view('cities', [
-        'title' => 'Cities',
-        'cities' => City::all()
-    ]);
-});
+// Route::get('cities/', function(City $city){
+//     return view('cities', [
+//         'title' => $city,
+//         'cities' => City::all()
+//     ]);
+// });
 
+Route::get('/cities', [CityController::class, 'index']);

@@ -1,13 +1,12 @@
 @extends('layouts/main')
 
 @section('container')
+  <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+    Cities Journey
+  </a>
   @foreach ($cities as $city)
-    <ul>
-      <li>
-        <h2>
-          <a href="cities/{{ $city->slug }}" class="text-decoration-none text-info">{{ $city->name }}</a>
-        </h2>
-      </li>
-    </ul>
+    <a href="cities/{{ $city->slug }}" class="list-group-item list-group-item-action">{{ $city->name }}</a>
   @endforeach
+  </div>
 @endsection

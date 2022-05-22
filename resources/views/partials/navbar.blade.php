@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-info">
   <div class="container">
-    <a class="navbar-brand" href="/">alindra's blog</a>
+    <a class="navbar-brand" href="/">Journeys Story</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,7 +16,7 @@
           <a class="nav-link {{ ($title === "journeys" ? 'active' : '') }}" href="/posts">journeys</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($title === $city ? 'active' : '') }}" href="/cities">cities</a>
+          <a class="nav-link {{ ($title == "cities" ? 'active' : '') }}" href="/cities">cities</a>
         </li>
       </ul>
     </div>

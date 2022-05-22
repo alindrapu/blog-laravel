@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\PostController;
+use App\Models\User;
+use Illuminate\Support\Facades\Route;
 use App\Models\City;
 use App\Models\Post;
-use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,25 +30,19 @@ Route::get('/about', function () {
         "title" => "about"
     ]);
 });
+//All Post
 Route::get('/posts', [PostController::class, 'index']);
-
-
 // Single Post Page
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
-//cities route
-Route::get('/cities/{city:slug}', function(City $city){
-    return view('city', [
-        'title' => $city->name,
-        'posts' => $city->posts,
-        'city' => $city->name
+//all cities
+Route::get('/cities', [CityController::class, 'index']);
+//single cities
+Route::get('/cities/{city:slug}', [CityController::class, 'show']);
+//authors list
+Route::get('/authors/{user}', function (User $user){
+    return view('posts', [
+        "title" => "Authors Journeys",
+        "posts" => $user->posts
     ]);
 });
-// Route::get('cities/', function(City $city){
-//     return view('cities', [
-//         'title' => $city,
-//         'cities' => City::all()
-//     ]);
-// });
-
-Route::get('/cities', [CityController::class, 'index']);

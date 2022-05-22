@@ -7,11 +7,20 @@ use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
-    public function index(City $city)
+    //show all post
+    public function index()
     {
         return view('cities', [
-            "title" => $city,
-            "posts" => City::all()
+            "title" => 'cities',
+            "cities" => City::all()
+        ]);
+    }
+    //show single city post
+    public function show(City $city){
+        return view('city', [
+            'title' => $city->name,
+            'posts' => $city->posts,
+            'city' => $city->name
         ]);
     }
 }

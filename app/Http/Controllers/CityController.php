@@ -17,10 +17,9 @@ class CityController extends Controller
     }
     //show single city post
     public function show(City $city){
-        return view('city', [
+        return view('posts', [
             'title' => $city->name,
             'posts' => $city->posts,
-            'city' => $city->name
         ]);
     }
 }

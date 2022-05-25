@@ -40,9 +40,9 @@ Route::get('/cities', [CityController::class, 'index']);
 //single cities
 Route::get('/cities/{city:slug}', [CityController::class, 'show']);
 //authors list
-Route::get('/authors/{user}', function (User $user){
+Route::get('/authors/{author:name}', function (User $author){
     return view('posts', [
-        "title" => "Authors Journeys",
-        "posts" => $user->posts
+        "title" => "Authors Journeys : $author->name",
+        "posts" => $author->posts
     ]);
 });

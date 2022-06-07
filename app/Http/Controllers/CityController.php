@@ -19,7 +19,7 @@ class CityController extends Controller
     public function show(City $city){
         return view('posts', [
             'title' => $city->name,
-            'posts' => $city->posts,
+            'posts' => $city->posts->load('user'),
         ]);
     }
 }

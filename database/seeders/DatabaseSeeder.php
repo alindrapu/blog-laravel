@@ -87,8 +87,8 @@ class DatabaseSeeder extends Seeder
             'body' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatum incidunt a amet voluptate ullam doloribus sint! Ducimus ratione assumenda aliquam hic necessitatibus vero delectus quo, a dignissimos modi quia minus nostrum ut quaerat ipsam molestias tempora beatae neque quis id voluptas saepe quos ad. Beatae ipsa consectetur iure eum in vitae perspiciatis reprehenderit sunt enim, quod laborum qui iste, asperiores doloribus itaque quae sint laudantium fugit, molestias sequi commodi possimus ex quas.</p><p>Illum facilis maiores id, quisquam voluptates fugit totam, accusamus sunt ea, nam animi rerum tempore beatae sed assumenda inventore laborum quae ipsa? Vero neque mollitia repudiandae optio voluptatem. Sunt totam itaque quae culpa sequi, ducimus harum provident commodi non hic quas excepturi illo voluptatum tempore consectetur voluptas voluptatibus possimus optio. Eos quos velit quaerat rem! Doloremque, porro temporibus, suscipit deserunt blanditiis, quia architecto neque reiciendis accusamus cum praesentium sapiente id pariatur laudantium ducimus ab distinctio totam ipsum!</p>'            
         ]);
         Post::create([
-            'title' => 'Bogor Scenery',
-            'slug' => 'bogor-scenery',
+            'title' => 'Ujung Genteng Scenery',
+            'slug' => 'ujung-genteng-scenery',
             'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatum incidunt a amet voluptate ullam doloribus sint! Ducimus ratione assumenda aliquam hic necessitatibus vero delectus quo, a dignissimos modi',
             'category_id' => '1',
             'city_id' => '2',

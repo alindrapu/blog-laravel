@@ -43,6 +43,6 @@ Route::get('/cities/{city:slug}', [CityController::class, 'show']);
 Route::get('/authors/{author:name}', function (User $author){
     return view('posts', [
         "title" => "Authors Journeys : $author->name",
-        "posts" => $author->posts
+        "posts" => $author->posts->load(['city', 'user'])
     ]);
 });

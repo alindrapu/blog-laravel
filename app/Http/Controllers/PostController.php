@@ -11,6 +11,7 @@ class PostController extends Controller
     {
         return view('posts', [
             "title" => "journeys",
+            "active" => "journeys",
             "posts" => Post::latest()->get()
         ]);
     }
@@ -19,6 +20,7 @@ class PostController extends Controller
     {
         return view('post', [
             "title" => $post->title,
+            "active" => "journeys",
             "post" => $post
         ]);
     }

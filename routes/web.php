@@ -22,12 +22,14 @@ use App\Models\Post;
 
 Route::get('/', function () {
   return view('home', [
-    "title" => "home"
+    "title" => "home",
+    "active" => "home"
   ]);
 });
 Route::get('/about', function () {
   return view('about', [
-    "title" => "about"
+    "title" => "about",
+    "active" => "about"
   ]);
 });
 //All Post
@@ -43,6 +45,7 @@ Route::get('/cities/{city:slug}', [CityController::class, 'show']);
 Route::get('/authors/{author:name}', function (User $author) {
   return view('posts', [
     "title" => "Authors Journeys : $author->name",
+    "active" => "journeys",
     "posts" => $author->posts->load(['city', 'user'])
   ]);
 });

@@ -12,13 +12,16 @@ class CityController extends Controller
     {
         return view('cities', [
             "title" => 'cities',
+            "active" => "cities",
             "cities" => City::all()
         ]);
     }
     //show single city post
-    public function show(City $city){
+    public function show(City $city)
+    {
         return view('posts', [
             'title' => $city->name,
+            "active" => "cities",
             'posts' => $city->posts->load('user'),
         ]);
     }

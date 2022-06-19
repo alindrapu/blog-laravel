@@ -29,6 +29,7 @@
       @foreach ($posts->skip(1) as $post)
         <div class="col-md-4 mb-5">
           <div class="card">
+            <div class="position-absolute px-2 py-1" style="background-color: rgba(0, 0, 0, 0.4)"><a class="text-decoration-none text-white" href="/posts/{{ $post->slug }}">{{ $post->city->name }}</a></div>
             <img src="..." class="card-img-top" alt="{{ $post->city->name }}">
             <div class="card-body">
               <h5 class="card-title text-info">{{ $post->title }}</h5>
@@ -38,7 +39,7 @@
                 </small>
               </p>
               <p class="card-text text-dark">{{ $post->excerpt }}</p>
-              <a href="/posts/{{ $post->slug }}" class="text-decoration-none text-info btn btn-light">read more...</a>
+              <a href="/posts/{{ $post->city->name }}" class="text-decoration-none text-info btn btn-light">read more...</a>
             </div>
           </div>
         </div>
@@ -47,16 +48,4 @@
   </div>
 {{-- end-of-post-card --}}
 
-@if (is_array($posts) || is_object($posts)) 
-  @foreach ($posts->skip(1) as $post)
-    <article class="mb-5 border-bottom">
-      <h2>
-        <a href="/posts/{{ $post->slug }}" class="text-decoration-none text-info">{{ $post->title }}</a>
-      </h2>
-      <p>By: <a href="/authors/{{ $post->user->name }}" class="text-decoration-none text-info">{{ $post->user->name }}</a> from <a href="/cities/{{ $post->city->slug }}" class="text-decoration-none text-info">{{ $post->city->name }}</a></p>
-      <p>{{ $post->excerpt }}</p>
-      <a href="/posts/{{ $post->slug }}" class="text-decoration-none text-info">read more...</a>
-    </article>
-  @endforeach
-@endif
 @endsection

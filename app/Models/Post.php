@@ -10,6 +10,7 @@ class Post extends Model
     use HasFactory;
     //protected $fillable = ["title", "excerpt", "body"];
     protected $guarded = ['id'];
+    protected $with = ['user', 'category', 'city'];
 
     public function category()
     {
@@ -20,7 +21,7 @@ class Post extends Model
     {
         return $this->belongsTo(City::class);
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);

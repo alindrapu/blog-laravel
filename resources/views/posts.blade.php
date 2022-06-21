@@ -1,7 +1,20 @@
 @extends('layouts/main')
 
 @section('container')
-  <h1 class="text-center">{{ $title }}</h1>
+  <h1 class="text-center mb-3">{{ $title }}</h1>
+
+  {{-- search bar --}}
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-8">
+      <form action="/posts">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="search" name="search" value="{{  }}">
+          <button class="btn btn-info" type="submit">search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{-- end of search bar --}}
 
   {{-- hero --}}
   @if ($posts->count())
@@ -25,8 +38,8 @@
           more...</a>
       </div>
     </div>
-
     {{-- end-of-hero --}}
+
 
     {{-- posts card --}}
     <div class="container">

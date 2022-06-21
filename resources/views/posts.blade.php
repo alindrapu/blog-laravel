@@ -25,39 +25,40 @@
           more...</a>
       </div>
     </div>
+
+    {{-- end-of-hero --}}
+
+    {{-- posts card --}}
+    <div class="container">
+      <div class="row">
+        @foreach ($posts->skip(1) as $post)
+          <div class="col-md-4 mb-5">
+            <div class="card">
+              <div class="position-absolute px-2 py-1" style="background-color: rgba(0, 0, 0, 0.4)"><a
+                  class="text-decoration-none text-white"
+                  href="/cities/{{ $post->city->slug }}">{{ $post->city->name }}</a></div>
+              <img src="https://source.unsplash.com/500x400?{{ $post->city->slug }}" class="card-img-top"
+                alt="{{ $post->city->name }}">
+              <div class="card-body">
+                <h5 class="card-title text-info">{{ $post->title }}</h5>
+                <p>
+                  <small class="text-dark">
+                    By: <a href="/authors/{{ $post->user->name }}"
+                      class="text-decoration-none text-info">{{ $post->user->name }}
+                    </a>{{ $post->created_at->diffForHumans() }}
+                  </small>
+                </p>
+                <p class="card-text text-dark">{{ $post->excerpt }}</p>
+                <a href="/posts/{{ $post->slug }}" class="text-decoration-none text-info btn btn-light">read
+                  more...</a>
+              </div>
+            </div>
+          </div>
+        @endforeach
+      </div>
+    </div>
+    {{-- end-of-post-card --}}
   @else
     <p class="text-center">No posts found.</p>
   @endif
-  {{-- end-of-hero --}}
-
-  {{-- posts card --}}
-  <div class="container">
-    <div class="row">
-      @foreach ($posts->skip(1) as $post)
-        <div class="col-md-4 mb-5">
-          <div class="card">
-            <div class="position-absolute px-2 py-1" style="background-color: rgba(0, 0, 0, 0.4)"><a
-                class="text-decoration-none text-white"
-                href="/cities/{{ $post->city->slug }}">{{ $post->city->name }}</a></div>
-            <img src="https://source.unsplash.com/500x400?{{ $post->city->slug }}" class="card-img-top"
-              alt="{{ $post->city->name }}">
-            <div class="card-body">
-              <h5 class="card-title text-info">{{ $post->title }}</h5>
-              <p>
-                <small class="text-dark">
-                  By: <a href="/authors/{{ $post->user->name }}"
-                    class="text-decoration-none text-info">{{ $post->user->name }}
-                  </a>{{ $post->created_at->diffForHumans() }}
-                </small>
-              </p>
-              <p class="card-text text-dark">{{ $post->excerpt }}</p>
-              <a href="/posts/{{ $post->slug }}" class="text-decoration-none text-info btn btn-light">read
-                more...</a>
-            </div>
-          </div>
-        </div>
-      @endforeach
-    </div>
-  </div>
-  {{-- end-of-post-card --}}
 @endsection

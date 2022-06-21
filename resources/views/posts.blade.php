@@ -7,8 +7,15 @@
   <div class="row justify-content-center mb-3">
     <div class="col-md-8">
       <form action="/posts">
+        @if (request('city'))
+          <input type="hidden" name="city" value="{{ request('city') }}">
+        @endif
+        @if (request('user'))
+          <input type="hidden" name="user" value="{{ request('user') }}">
+        @endif
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="search" name="search" value="{{  }}">
+          <input type="text" class="form-control" placeholder="search" name="search"
+            value="{{ request('search') }}">
           <button class="btn btn-info" type="submit">search</button>
         </div>
       </form>
@@ -26,9 +33,9 @@
             class="text-decoration-none text-info">{{ $posts[0]->title }}</a></h3>
         <p>
           <small class="text-dark">
-            By: <a href="/authors/{{ $posts[0]->user->name }}"
+            By: <a href="/posts?user={{ $posts[0]->user->name }}"
               class="text-decoration-none text-info">{{ $posts[0]->user->name }}</a> from <a
-              href="/cities/{{ $posts[0]->city->slug }}"
+              href="/posts?city={{ $posts[0]->city->slug }}"
               class="text-decoration-none text-info">{{ $posts[0]->city->name }} </a>
             {{ $posts[0]->created_at->diffForHumans() }}
           </small>
@@ -49,14 +56,14 @@
             <div class="card">
               <div class="position-absolute px-2 py-1" style="background-color: rgba(0, 0, 0, 0.4)"><a
                   class="text-decoration-none text-white"
-                  href="/cities/{{ $post->city->slug }}">{{ $post->city->name }}</a></div>
+                  href="/posts?city={{ $post->city->slug }}">{{ $post->city->name }}</a></div>
               <img src="https://source.unsplash.com/500x400?{{ $post->city->slug }}" class="card-img-top"
                 alt="{{ $post->city->name }}">
               <div class="card-body">
                 <h5 class="card-title text-info">{{ $post->title }}</h5>
                 <p>
                   <small class="text-dark">
-                    By: <a href="/authors/{{ $post->user->name }}"
+                    By: <a href="/posts?user={{ $post->user->name }}"
                       class="text-decoration-none text-info">{{ $post->user->name }}
                     </a>{{ $post->created_at->diffForHumans() }}
                   </small>
@@ -69,9 +76,11 @@
           </div>
         @endforeach
       </div>
+      {{ $posts->links() }}
     </div>
     {{-- end-of-post-card --}}
   @else
     <p class="text-center">No posts found.</p>
   @endif
+
 @endsection

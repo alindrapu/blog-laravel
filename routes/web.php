@@ -41,11 +41,3 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/cities', [CityController::class, 'index']);
 //single cities
 Route::get('/cities/{city:slug}', [CityController::class, 'show']);
-//authors list
-Route::get('/authors/{author:name}', function (User $author) {
-  return view('posts', [
-    "title" => "Authors Journeys : $author->name",
-    "active" => "journeys",
-    "posts" => $author->posts->load(['city', 'user'])
-  ]);
-});

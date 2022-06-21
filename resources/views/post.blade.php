@@ -8,7 +8,8 @@
         <p class="text-center">
           By: <a href="/authors/{{ $post->user->name }}"
             class="text-decoration-none text-info">{{ $post->user->name }}</a> from <a
-            href="/cities/{{ $post->city->slug }}" class="text-decoration-none text-info">{{ $post->city->name }} </a>
+            href="/posts?city={{ $post->city->slug }}" class="text-decoration-none text-info">{{ $post->city->name }}
+          </a>
           {{ $post->created_at->diffForHumans() }}
         </p>
         <img src="https://source.unsplash.com/1200x600?{{ $post->city->name }}" class="card-img-top image-fluid"

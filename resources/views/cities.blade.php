@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
       @foreach ($cities as $city)
         <div class="col-md-10 mb-4">
-          <a href="cities/{{ $city->slug }}">
+          <a href="/posts?city={{ $city->slug }}">
             <div class="card bg-dark text-white">
               <img src="https://source.unsplash.com/1200x600?{{ $city->name }}" class="card-img" alt="{{ $city->name }}">
               <div class="card-img-overlay d-flex align-items-center" style="background-color: rgba(0,0,0,0.3)">

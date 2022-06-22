@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\PostController;
-use App\Models\User;
-use Illuminate\Support\Facades\Route;
-use App\Models\City;
-use App\Models\Post;
+use App\Http\Controllers\LoginController;
+
 
 
 /*
@@ -41,3 +40,6 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/cities', [CityController::class, 'index']);
 //single cities
 Route::get('/cities/{city:slug}', [CityController::class, 'show']);
+
+//login
+Route::get('/login', [LoginController::class, 'index']);

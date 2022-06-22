@@ -2,10 +2,6 @@
 
 /* BASIC */
 
-html {
-    background-color: #56baed;
-}
-
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
@@ -24,8 +20,12 @@ h2 {
     font-weight: 600;
     text-transform: uppercase;
     display: inline-block;
-    margin: 40px 8px 10px 8px;
+    margin: 10px 8px 10px 8px;
     color: #cccccc;
+}
+
+#toptext {
+    margin-top: 20px;
 }
 
 /* STRUCTURE */
@@ -45,6 +45,7 @@ h2 {
     border-radius: 10px 10px 10px 10px;
     background: #fff;
     padding: 30px;
+    padding-top: 10px;
     width: 90%;
     max-width: 450px;
     position: relative;
@@ -116,7 +117,9 @@ input[type="reset"]:active {
     transform: scale(0.95);
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"],
+input[type="email"] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -137,12 +140,15 @@ input[type="text"] {
     border-radius: 5px 5px 5px 5px;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus input[type="email"]:focus {
     background-color: #fff;
     border-bottom: 2px solid #5fbae9;
 }
 
-input[type="text"]:placeholder {
+input[type="text"]:placeholder,
+input[type="password"]:placeholder,
+input[type="email"]:placeholder {
     color: #cccccc;
 }
 
@@ -270,9 +276,24 @@ input[type="text"]:placeholder {
 }
 
 /* OTHERS */
+input:focus::placeholder {
+    color: rgba(0, 0, 0, 0.1);
+    transition: color 0.2s;
+}
 
 *:focus {
     outline: none;
+    color: transparent;
+}
+
+#searchButton {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#loginButton {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #icon {

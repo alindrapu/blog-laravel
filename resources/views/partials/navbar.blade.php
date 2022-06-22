@@ -25,6 +25,10 @@
           <a class="nav-link {{ $active == 'login' ? 'active' : '' }}" href="/login"><i
               class="bi bi-box-arrow-in-right"></i> login</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ $active == 'sign up' ? 'active' : '' }}" href="/signup"><i
+              class="bi bi-box-arrow-in-right"></i> signup</a>
+        </li>
       </ul>
     </div>
   </div>

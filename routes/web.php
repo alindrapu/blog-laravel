@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
-
-
+use App\Http\Controllers\SignUpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +42,7 @@ Route::get('/cities/{city:slug}', [CityController::class, 'show']);
 
 //login
 Route::get('/login', [LoginController::class, 'index']);
+
+//sign up
+Route::get('/signup', [SignUpController::class, 'index']);
+Route::post('/signup', [SignUpController::class, 'store']);

@@ -14,9 +14,9 @@
           <input type="hidden" name="user" value="{{ request('user') }}">
         @endif
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="search" name="search"
+          <input id="searchBar" type="text" class="form-control" placeholder="search" name="search"
             value="{{ request('search') }}">
-          <button class="btn btn-info" type="submit">search</button>
+          <button id="searchButton" class="btn btn-info" type="submit">search</button>
         </div>
       </form>
     </div>

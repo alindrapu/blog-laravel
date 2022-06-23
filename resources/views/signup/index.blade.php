@@ -14,14 +14,30 @@
       <!-- Sign Up Form -->
       <form action="/signup" method="POST">
         @csrf
-        <input type="text" id="name" class="fadeIn second" name="name" placeholder="full name">
-        <input type="text" id="username" class="fadeIn second" name="username" placeholder="username">
-        <input type="email" id="email" class="fadeIn third" name="email" placeholder="email">
-        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+        <input type="text" id="name" class="fadeIn first @error('name') is-invalid @enderror" name="name"
+          placeholder="full name" required value="{{ old('name') }}">
+        @error('name')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+        <input type="text" id="username" class="fadeIn second @error('username') is-invalid @enderror" name="username"
+          placeholder="username" required value="{{ old('username') }}">
+        @error('username')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+        <input type="email" id="email" class="fadeIn third @error('email') is-invalid @enderror" name="email"
+          placeholder="email" required value="{{ old('email') }}">
+        @error('email')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+        <input type="password" id="password" class="fadeIn third @error('password') is-invalid @enderror" name="password"
+          placeholder="password" required>
+        @error('password')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
         <input type="submit" id="loginButton" class="fadeIn fourth" value="Sign Up">
       </form>
 
-      <!-- Remind Passowrd -->
+      <!-- reminder -->
       <div id="formFooter">
         <a class="underlineHover text-decoration-none" href="/login">already registered? login here</a>
       </div>

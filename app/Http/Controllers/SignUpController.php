@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+
+
 
 class SignUpController extends Controller
 {
@@ -16,13 +21,19 @@ class SignUpController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|max:20',
-            'username' => 'required|unique:users|min:6|max:16',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8|max:32'
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:20'],
+            'username' => ['required', 'unique:users', 'min:6', 'max:16'],
+            'email' => ['required'],
+            'password' => ['required', 'min:8']
         ]);
 
-        dd("registrasi berhasil");
+
+        // $validatedData['password'] = bcrypt($validatedData['password']);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        User::create($validatedData);
+
+        //flash message
+        return redirect('/login')->with('success', 'successfully signed up! please login.');
     }
 }

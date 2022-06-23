@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {{-- My Styles --}}
+  {{-- My tyles --}}
   <link rel="stylesheet" href="/css/style.css">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,14 +15,15 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&display=swap">
 
 
 
   <title>Journeys Story | {{ $title }}</title>
 </head>
 
-<body class="bg-dark text-light text-info" style="font-family: 'Poppins', sans-serif">
+<body class="bg-dark text-light text-info" style="font-family: 'Inconsolata', 'monospace'">
   @include('partials.navbar')
   <div class="container mt-4">
     @yield('container')

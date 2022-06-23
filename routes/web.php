@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignUpController;
@@ -40,9 +41,18 @@ Route::get('/cities', [CityController::class, 'index']);
 //single cities
 Route::get('/cities/{city:slug}', [CityController::class, 'show']);
 
-//login
-Route::get('/login', [LoginController::class, 'index']);
+//log in
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+//log out
+Route::post('/logout', [LoginController::class, 'logout']);
 
 //sign up
-Route::get('/signup', [SignUpController::class, 'index']);
+Route::get('/signup', [SignUpController::class, 'index'])->middleware('guest')->name('sign up');
 Route::post('/signup', [SignUpController::class, 'store']);
+
+//dashboard
+Route::get('/dashboard', function () {
+  return view('dashboard.index');
+})->middleware('auth')->name('dashboard');

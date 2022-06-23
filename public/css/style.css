@@ -84,7 +84,7 @@ input[type="reset"] {
     border: none;
     color: white;
     padding: 15px 80px;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     display: inline-block;
     text-transform: uppercase;
@@ -280,11 +280,6 @@ input[type="email"]:placeholder {
 input:focus::placeholder {
     color: rgba(0, 0, 0, 0.5);
     transition: color 0.3s;
-    text-align: left;
-}
-
-*::placeholder {
-    text-align: left;
 }
 
 *:focus {

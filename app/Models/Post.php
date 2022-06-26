@@ -2,18 +2,27 @@
 
 namespace App\Models;
 
-use Clockwork\Storage\Search;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use PDO;
+use App\Models\City;
+use App\Models\Category;
+use Clockwork\Storage\Search;
+use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Symfony\Component\CssSelector\Node\FunctionNode;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-  use HasFactory;
+  use HasFactory, Sluggable;
   //protected $fillable = ["title", "excerpt", "body"];
   protected $guarded = ['id'];
   protected $with = ['user', 'category', 'city'];
+
+  public function getRouteKeyName()
+  {
+    return 'slug';
+  }
+
 
   public function scopeFilter($query, array $filters)
   {
@@ -51,5 +60,14 @@ class Post extends Model
   public function user()
   {
     return $this->belongsTo(User::class);
+  }
+
+  public function sluggable(): array
+  {
+    return [
+      'slug' => [
+        'source' => 'title'
+      ]
+    ];
   }
 }

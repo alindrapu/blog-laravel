@@ -5,7 +5,7 @@
     <h1 class="h2">{{ Auth::user()->name }}'s posts</h1>
   </div>
   @if (session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show col-lg-10" role="alert">
       {{ session('success') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -38,12 +38,17 @@
                 alt="view details">
                 <i data-feather="eye"></i>
               </a>
-              <a href="" class="badge badge-pill bg-warning text-light" alt="edit">
+              <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge badge-pill bg-warning text-light"
+                alt="edit">
                 <span data-feather="edit"></span>
               </a>
-              <a href="" class="badge badge-pill bg-danger text-light" alt="delete">
-                <span data-feather="x-circle"></span>
-              </a>
+              <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                @method('delete')
+                @csrf
+                <button class="badge badge-pill bg-danger text-light border-0"
+                  onclick="return confirm('do you want to delete this post?')"><span
+                    data-feather="x-circle"></span></button>
+              </form>
             </td>
           </tr>
         @endforeach

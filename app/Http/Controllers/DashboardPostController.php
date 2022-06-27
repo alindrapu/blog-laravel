@@ -82,7 +82,11 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('dashboard.posts.edit', [
+            'post' => $post,
+            'categories' => Category::all(),
+            'cities' => City::all()
+        ]);
     }
 
     /**
@@ -105,7 +109,8 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+        return redirect('dashboard/posts')->with('success', 'your post has been deleted');
     }
 
     public function checkSlug(Request $request)

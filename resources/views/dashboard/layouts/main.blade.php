@@ -26,7 +26,7 @@
 
   <style>
     trix-toolbar {
-      width: 86%
+      width: 100%
     }
 
     trix-editor,
@@ -35,6 +35,7 @@
       border: none;
       color: #0d0d0d;
       padding: 15px 32px;
+      padding-bottom: 100px;
       text-align: left;
       text-decoration: none;
       display: inline-block;

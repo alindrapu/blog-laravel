@@ -35,14 +35,12 @@ trix-editor:placeholder {
 
 trix-toolbar * {
     box-sizing: border-box;
-    width: 86%;
 }
 trix-toolbar .trix-button-row {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     overflow-x: auto;
-    width: 86%;
 }
 trix-toolbar .trix-button-group {
     display: flex;

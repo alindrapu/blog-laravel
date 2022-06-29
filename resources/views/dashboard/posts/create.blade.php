@@ -73,7 +73,7 @@
           </div>
         @enderror
       </div>
-      <button type="submit" class="btn btn-primary">create post</button>
+      <button type="submit" class="btn btn-primary mb-50" style="margin-bottom: 50px">create post</button>
     </form>
   </div>
 

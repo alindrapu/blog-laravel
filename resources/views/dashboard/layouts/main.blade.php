@@ -63,6 +63,10 @@
       color: #cccccc;
     }
 
+    trix-toolbar .trix-button-row {
+      width: 86%;
+    }
+
 
     trix-toolbar [data-trix-button-group="file-tools"] {
       display: none;

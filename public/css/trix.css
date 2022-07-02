@@ -41,6 +41,7 @@ trix-toolbar .trix-button-row {
     flex-wrap: nowrap;
     justify-content: space-between;
     overflow-x: auto;
+    width: 86%;
 }
 trix-toolbar .trix-button-group {
     display: flex;

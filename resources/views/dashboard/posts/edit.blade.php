@@ -12,7 +12,7 @@
       <div class="mb-3">
         <label for="title" class="form-label d-block">title</label>
         <input type="text" class="form-control d-block @error('title') is-invalid @enderror" id="title"
-          name="title" required value="{{ old('title'), $post->title }}">
+          name="title" required value="{{ old('title', $post->title) }}">
         @error('title')
           <div class="invalid-feedback">
             {{ $message }}
@@ -22,7 +22,7 @@
       <div class="mb-3">
         <label for="slug" class="form-label d-block">slug</label>
         <input type="text" class="form-control d-block @error('slug') is-invalid @enderror" id="slug"
-          name="slug" required value="{{ old('slug'), $post->slug }}">
+          name="slug" required value="{{ old('slug', $post->slug) }}">
         @error('slug')
           <div class="invalid-feedback">
             {{ $message }}
@@ -50,7 +50,7 @@
         <label for="category">category</label>
         <select class="form-select" name="category_id" id="category-select" style="width: 86%" required>
           @foreach ($categories as $category)
-            @if (old('category_id') == $category->id)
+            @if (old('category_id', $post->category_id) == $category->id)
               <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
             @else
               <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -66,7 +66,7 @@
       <div class="mb-3">
         <label for="body" class="form-label d-block">body</label>
         <input id="body" type="hidden" name="body" class="@error('body') is-invalid @enderror" required
-          value="{{ old('body') }}">
+          value="{{ old('body', $post->body) }}">
         <trix-editor input="body"></trix-editor>
         @error('body')
           <div class="invalid-feedback">
@@ -74,7 +74,7 @@
           </div>
         @enderror
       </div>
-      <button type="submit" class="btn btn-primary">create post</button>
+      <button type="submit" class="btn btn-primary mb-5">edit post</button>
     </form>
   </div>
 

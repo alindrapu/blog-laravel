@@ -26,8 +26,14 @@
   {{-- hero --}}
   @if ($posts->count())
     <div class="card mb-3">
-      <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->city->name }}" class="card-img-top"
-        alt="{{ $posts[0]->city->name }}">
+      @if ($posts[0]->image)
+        <img src="{{ asset('storage/' . $posts[0]->image) }}" class="card-img-top"
+          style="max-height: 450px; overflow:hidden" alt="{{ $posts[0]->city->name }}">
+      @else
+        <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->city->name }}" class="card-img-top"
+          alt="{{ $posts[0]->city->name }}">
+      @endif
+
       <div class="card-body text-center text-dark">
         <h3 class="card-title text-decoration-none text-info"><a href="/posts/{{ $posts[0]->slug }}"
             class="text-decoration-none text-info">{{ $posts[0]->title }}</a></h3>

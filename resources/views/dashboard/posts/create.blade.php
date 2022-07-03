@@ -64,7 +64,13 @@
       </div>
       <div class="mb-3">
         <label for="image" class="form-label">upload your photos</label>
-        <input class="form-control" style="width: 87%" type="file" id="image" name="image" multiple>
+        <input class="form-control @error('image') is-invalid @enderror " style="width: 87%" type="file" id="image"
+          name="image" multiple>
+        @error('image')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+        @enderror
       </div>
       <div class="mb-3">
         <label for="body" class="form-label d-block">body</label>

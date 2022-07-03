@@ -20,6 +20,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         //user seeding
+
+        User::create([
+            'name' => 'Alindra Putra',
+            'username' => 'alindrapn',
+            'email' => 'alindrapu@gmail.com',
+            'password' =>  bcrypt('password')
+        ]);
+
         User::factory(10)->create();
 
         //city seeding

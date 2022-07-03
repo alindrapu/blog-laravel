@@ -18,8 +18,17 @@
               post</button>
           </form>
         </div>
-        <img src="https://source.unsplash.com/1200x600?{{ $post->city->name }}" class="card-img-top image-fluid mt-3"
-          alt="{{ $post->city->name }}">
+
+        @if ($post->image)
+          <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top image-fluid mt-3"
+            alt="{{ $post->city->name }}">
+        @else
+          <img src="https://source.unsplash.com/1200x600?{{ $post->city->name }}" class="card-img-top image-fluid mt-3"
+            alt="{{ $post->city->name }}">
+        @endif
+
+
+
         <article class="my-3"">
           {!! $post->body !!}
         </article>

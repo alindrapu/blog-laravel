@@ -64,8 +64,9 @@
       </div>
       <div class="mb-3">
         <label for="image" class="form-label">upload your photos</label>
+        <img class="img-preview img-fluid">
         <input class="form-control @error('image') is-invalid @enderror " style="width: 87%" type="file" id="image"
-          name="image" multiple>
+          name="image" multiple onchange="previewImage()">
         @error('image')
           <div class="invalid-feedback">
             {{ $message }}
@@ -108,5 +109,20 @@
       e.preventDefault();
     });
     // end of disable file function trix
+
+    // image preview function
+
+    function previewImage = () => {
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(image.files[0]);
+
+    
+    }
+    // end of image preview function
   </script>
 @endsection

@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+{{-- kode untuk melakukan login --}}
   <div class="wrapper fadeInDown">
     {{-- flash messages --}}
     @if (session()->has('success'))

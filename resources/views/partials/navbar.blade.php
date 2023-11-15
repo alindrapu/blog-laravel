@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgba(0, 0, 0, 0.5) !important;">
   <div class="container">
     <a class="navbar-brand" href="/">Journeys Story</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -8,17 +8,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link {{ $active === 'home' ? 'active' : '' }}"href="/">home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ $active === 'about' ? 'active' : '' }}" href="/about">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ $active === 'journeys' ? 'active' : '' }}" href="/posts">journeys</a>
+          <a class="nav-link {{ $active === 'journeys' ? 'active' : '' }}" href="/">journeys</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ $active == 'cities' ? 'active' : '' }}" href="/cities">cities</a>
         </li>
+        @auth
+        <li class="nav-item">
+          <a class="nav-link {{ $active === 'portfolio' ? 'active' : '' }}"href="/portfolio">my portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ $active === 'about' ? 'active' : '' }}"href="/about">about me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ $active === 'contact' ? 'active' : '' }}" href="/contact">contact</a>
+        </li>
+        @endauth
       </ul>
 
       {{-- login - sign up --}}

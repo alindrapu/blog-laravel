@@ -19,45 +19,55 @@ use App\Http\Controllers\SignUpController;
 |
 */
 
-Route::get('/', function () {
-  return view('home', [
-    "title" => "home",
-    "active" => "home"
-  ]);
+// Public routes
+Route::get('/', [PostController::class, 'index']);
+
+// Routes accessible only for logged-in users
+Route::middleware(['auth'])->group(function () {
+    Route::get('/contact', function () {
+        return view('contact', [
+            "title" => "contact",
+            "active" => "contact"
+        ]);
+    });
+
+    Route::get('/portfolio', function () {
+        return view('portfolio', [
+            "title" => "portfolio",
+            "active" => "portfolio",
+        ]);
+    });
+
+    Route::get('/about', function () {
+        return view('about', [
+            "title" => "about",
+            "active" => "about",
+        ]);
+    });
+
+    // Dashboard route
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
+
+    // Other dashboard routes
+    Route::get('/dashboard/checkSlug', [DashboardPostController::class, 'checkSlug']);
+    Route::resource('/dashboard/posts', DashboardPostController::class);
 });
-Route::get('/about', function () {
-  return view('about', [
-    "title" => "about",
-    "active" => "about"
-  ]);
-});
-//All Post
+
+// Post-related routes
 Route::get('/posts', [PostController::class, 'index']);
-// Single Post Page
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
-//all cities
+// City-related routes
 Route::get('/cities', [CityController::class, 'index']);
-//single cities
 Route::get('/cities/{city:slug}', [CityController::class, 'show']);
 
-//log in
+// Authentication routes
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
-
-//log out
 Route::post('/logout', [LoginController::class, 'logout']);
 
-//sign up
+// Sign up routes
 Route::get('/signup', [SignUpController::class, 'index'])->middleware('guest')->name('sign up');
 Route::post('/signup', [SignUpController::class, 'store']);
-
-//dashboard
-Route::get('/dashboard', function () {
-  return view('dashboard.index');
-})->middleware('auth')->name('dashboard');
-
-
-//dashboard post controller
-Route::get('/dashboard/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');

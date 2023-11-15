@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+{{-- kode untuk melakukan sign up --}}
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
